@@ -9,6 +9,8 @@ class Addinputform extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     this.props.addHabit(this.inputRef.current.value);
+    this.inputRef.current.value = '';
+    this.inputRef.current.focus();
   }
 
   render() {

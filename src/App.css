@@ -101,3 +101,11 @@ li {
 .habit__trashBtn {
   color: var(--color--red);
 }
+
+.reset {
+  display: inline-block;
+  font-size: 1.5rem;
+  background-color: var(--color--green);
+  color: white;
+  padding: 0.3rem 1rem;
+}

@@ -60,6 +60,16 @@ class App extends Component {
     })
   }
 
+  resetCount = () => {
+    const habits = this.state.habits.map(habit => {
+      return { ...habit, count: 0 };
+    })
+
+    this.setState({
+      habits
+    })
+  }
+
   render() {
     return (
       <>
@@ -70,6 +80,7 @@ class App extends Component {
           handleAdd={this.handleAdd}
           handleMinus={this.handleMinus}
           handleDelete={this.handleDelete}
+          resetCount={this.resetCount}
         />
       </>
     );
