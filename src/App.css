@@ -5,6 +5,11 @@
   --color--yellow: #e0ba0d;
   --color--red: #b4120c;
   --color--mint: #9ccc9c;
+  --color-beige: #f3e2b2;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 button {
@@ -25,6 +30,48 @@ li {
   list-style: none;
 }
 
+.navbar {
+  font-size: 2.5rem;
+  padding: 2rem;
+  background-color: var(--color-beige);
+}
+
+.navbar__logo {
+  color: var(--color--green);
+}
+
+.navbar__title {
+  margin: 0 1rem;
+}
+
+.navbar__totalCount {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3rem;
+  color: white;
+  background-color: var(--color--green);
+}
+
+.addForm {
+  margin: 1.6rem 0 0 0.3rem;
+  display: flex;
+}
+
+.addForm__input {
+  font-size: 2rem;
+}
+
+.addForm__btn {
+  width: 5rem;
+  height: 2.8rem;
+  background-color: var(--color--green);
+  color: var(--color--white);
+  font-size: 2rem;
+}
+
 .habit__title {
   font-size: 2rem;
 }
@@ -42,7 +89,6 @@ li {
   background-color: var(--color--mint);
   color: var(--color--white);
 }
-
 
 .habit__plusBtn {
   color: var(--color--yellow);
