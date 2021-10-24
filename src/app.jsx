@@ -2,7 +2,6 @@ import './app.css';
 import React, { Component } from 'react';
 import Habits from './components/habits';
 import Navbar from './components/navbar';
-import Addinputform from './components/addinputform';
 
 class App extends Component {
   state = {
@@ -62,7 +61,10 @@ class App extends Component {
 
   resetCount = () => {
     const habits = this.state.habits.map(habit => {
-      return { ...habit, count: 0 };
+      if (habit.count !== 0) {
+        return { ...habit, count: 0 };
+      }
+      return habit;
     })
 
     this.setState({
@@ -74,13 +76,13 @@ class App extends Component {
     return (
       <>
         <Navbar totalCount={this.state.habits.filter(item => item.count > 0).length} />
-        <Addinputform addHabit={this.addHabit}/>
         <Habits
           habits={this.state.habits}
           handleAdd={this.handleAdd}
           handleMinus={this.handleMinus}
           handleDelete={this.handleDelete}
           resetCount={this.resetCount}
+          addHabit={this.addHabit}
         />
       </>
     );

@@ -11,7 +11,9 @@
 * {
   box-sizing: border-box;
 }
-
+body {
+  width: 38rem;
+}
 button {
   outline: none;
   border: none;
@@ -28,6 +30,8 @@ ul {
 
 li {
   list-style: none;
+  display: flex;
+  align-items: center;
 }
 
 .navbar {
@@ -61,6 +65,7 @@ li {
 }
 
 .addForm__input {
+  width: 100%;
   font-size: 2rem;
 }
 
@@ -74,6 +79,7 @@ li {
 
 .habit__title {
   font-size: 2rem;
+  flex-basis: 70%;
 }
 
 .habit__count {

@@ -1,10 +1,13 @@
 import React, { PureComponent } from 'react';
+import Addinputform from './addinputform';
 import Habit from './habit';
 
 class Habits extends PureComponent {
   render() {
     return (
       <>
+        {console.log('habits')}
+        <Addinputform addHabit={this.props.addHabit}/>
         <ul>
           {
             this.props.habits.map(habit => {
