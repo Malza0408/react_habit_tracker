@@ -108,7 +108,7 @@ li {
   color: var(--color--red);
 }
 
-.reset {
+.habits__reset {
   display: inline-block;
   font-size: 1.5rem;
   background-color: var(--color--green);

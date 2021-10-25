@@ -1,30 +1,27 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Addinputform from './addinputform';
 import Habit from './habit';
 
-class Habits extends PureComponent {
-  render() {
-    return (
-      <>
-        {console.log('habits')}
-        <Addinputform addHabit={this.props.addHabit}/>
-        <ul>
-          {
-            this.props.habits.map(habit => {
-              return <
-                Habit key={habit.id}
-                habit={habit}
-                handleAdd={this.props.handleAdd}
-                handleMinus={this.props.handleMinus}
-                handleDelete={this.props.handleDelete}
-              />
-            })
-          }
-        </ul>
-        <button className="reset" onClick={this.props.resetCount}>Reset Count</button>
-      </>
-    );
-  }
-}
+const Habits = ({ habits, onIncrement, onDecrement, onDelete, onAdd, onReset }) => {
+  return (
+    <div className="habits">
+      <Addinputform onAdd={onAdd} />
+      <ul>
+        {habits.map(habit => (
+          <Habit
+            key={habit.id}
+            habit={habit}
+            onIncrement={onIncrement}
+            onDecrement={onDecrement}
+            onDelete={onDelete}
+          />
+        ))}
+      </ul>
+      <button className="habits__reset" onClick={onReset}>
+        Reset All
+      </button>
+    </div>
+  );
+};
 
 export default Habits;

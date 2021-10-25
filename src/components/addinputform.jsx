@@ -1,23 +1,27 @@
 import { React, createRef, memo } from 'react';
 
-const Addinputform = memo((props) => {
-  const inputRef = createRef();
+const Addinputform = memo(props => {
   const formRef = createRef();
+  const inputRef = createRef();
 
-  const handleSubmit = event => {
+  const onSubmit = event => {
     event.preventDefault();
     const name = inputRef.current.value;
-    name&& props.addHabit(name);
-    inputRef.current.focus();
+    name && props.onAdd(name);
     formRef.current.reset();
-  }
+  };
 
   return (
-    <form className="addForm" onSubmit={handleSubmit} ref={formRef}>
-      <input className="addForm__input" type="text" placeholder="Habit" maxLength="20" ref={inputRef} required/>
-      <button className="addForm__btn" type="submit">Add</button>
+    <form ref={formRef} className="addForm" onSubmit={onSubmit}>
+      <input
+        ref={inputRef}
+        type="text"
+        className="addForm__input"
+        placeholder="Habit"
+      />
+      <button className="addForm__btn">Add</button>
     </form>
   );
-})
+});
 
 export default Addinputform;

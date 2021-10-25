@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
+import React, { memo } from 'react';
+const Habit = memo(({ habit, onIncrement, onDecrement, onDelete }) => {
+  const handleIncrement = () => {
+    onIncrement(habit);
+  };
 
-class Habit extends Component {
+  const handleDecrement = () => {
+    onDecrement(habit);
+  };
 
-  handleAdd = () => {
-    this.props.handleAdd(this.props.habit);
-  }
-  
-  handleMinus = () => {
-    this.props.handleMinus(this.props.habit);
-  }
+  const handleDelete = () => {
+    onDelete(habit);
+  };
 
-  handleDelete = () => {
-    this.props.handleDelete(this.props.habit);
-  }
-
-  render() {
-    const { name, count } = this.props.habit;
-    console.log('habit: ', name);
-    return (
-        <li>
-          <span className="habit__title">{name}</span>
-          <span className="habit__count">{count}</span>
-          <button className="habit__plusBtn" onClick={this.handleAdd}><i className="fas fa-plus-square"></i></button>
-          <button className="habit__minusBtn" onClick={this.handleMinus}><i className="fas fa-minus-square"></i></button>
-          <button className="habit__trashBtn" onClick={this.handleDelete}><i className="fas fa-trash"></i></button>
-        </li>
-    );
-  }
-}
+  return (
+    <li className="habit">
+      <span className="habit__title">{habit.name}</span>
+      <span className="habit__count">{habit.count}</span>
+      <button className="habit__plusBtn" onClick={handleIncrement}>
+        <i className="fas fa-plus-square"></i>
+      </button>
+      <button className="habit__minusBtn" onClick={handleDecrement}>
+        <i className="fas fa-minus-square"></i>
+      </button>
+      <button className="habit__trashBtn" onClick={handleDelete}>
+        <i className="fas fa-trash"></i>
+      </button>
+    </li>
+  );
+});
 
 export default Habit;
